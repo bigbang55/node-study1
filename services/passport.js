@@ -1,7 +1,10 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
+const mongoose = require('mongoose');
 const keys = require('../config/keys');
+
+const User = mongoose.model('User'); // one argument loads, two saves
 
 // googlestrategy has a internal identifier named 'google'
 passport.use(
@@ -12,9 +15,7 @@ passport.use(
 			callbackURL: '/auth/google/callback'
 		},
 		(accessToken, refreshToken, profile, done) => {
-			console.log('access token', accessToken);
-			console.log('refresh token', refreshToken);
-			console.log('profile', profile);
+			new User({ googleId: profile.id }).save(); // create user on the database
 		}
 	)
 );
