@@ -1,5 +1,12 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
 require('./services/passport'); //because its not returning anything
+
+mongoose.connect(
+	keys.mongoURI,
+	{ user: keys.mongoUser, pass: keys.mongoPass } //used options because pass has special chars
+);
 
 const app = express();
 
