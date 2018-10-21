@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose; // ES6 destructuring - same as [const Schema = mongoose.Schema]
 
 const userSchema = new Schema({
-	googleId: String
+    googleId: String,
+    facebookId: String
 });
 
 mongoose.model('User', userSchema); //first letter capitalized and singular (mongoose standard)

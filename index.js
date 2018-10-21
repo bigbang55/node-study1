@@ -13,16 +13,17 @@ mongoose.connect(
 
 const app = express();
 
-// tell passport and express to use cookies
+// setup cookies in express (middleware, before route handlers)
 app.use(
 	cookieSession({
 		maxAge: 30 * 24 * 60 * 60 * 1000, //30 days in miliseconds
 		keys: [keys.cookieKey]
 	})
 );
+
+// tell passport to manage the authentication (middleware, before route handlers)
 app.use(passport.initialize());
 app.use(passport.session());
-// finish doing cookie stuff
 
 require('./routes/authRouters')(app); //no need for const var, imediatelly calls the function
 

@@ -1,6 +1,6 @@
 # Customized by Developer
 node_modules
-keys.js
+dev.js
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
