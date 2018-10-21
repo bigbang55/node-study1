@@ -1,7 +1,7 @@
 # Customized by Developer
 node_modules
 dev.js
-.ebextensions
+/.ebextensions
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
